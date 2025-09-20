@@ -48,11 +48,11 @@ docker compose up
 
 SQL para Database inicial
 
-![SQL para Database inicial](.github/classtimes_initial_database.png)
+![SQL para Database inicial](../.github/classtimes_initial_database.png)
 
 Logs no Docker mostrando o resultado esperado
 
-![Logs no Docker mostrando o resultado esperado](.github/classtimes_docker_logs.png)
+![Logs no Docker mostrando o resultado esperado](../.github/classtimes_docker_logs.png)
 
 
 ## 👨‍🏫 Relatórios
