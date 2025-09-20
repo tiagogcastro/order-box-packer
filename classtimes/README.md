@@ -44,6 +44,17 @@ docker compose up
 
 ---
 
+## Evidências do projeto
+
+SQL para Database inicial
+
+![SQL para Database inicial](.github/classtimes_initial_database.png)
+
+Logs no Docker mostrando o resultado esperado
+
+![Logs no Docker mostrando o resultado esperado](.github/classtimes_docker_logs.png)
+
+
 ## 👨‍🏫 Relatórios
 
 Os relatórios podem ser gerados executando o projeto. Os resultados das consultas são exibidos no console.
