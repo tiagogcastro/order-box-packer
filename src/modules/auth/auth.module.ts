@@ -1,11 +1,10 @@
 import { AuthController } from '@/modules/auth/controllers/auth.controller';
-import { JwtAuthGuard } from '@/modules/auth/jwt-auth.guard';
-import { AuthRepository } from '@/modules/auth/repositories/auth.repository';
-import { GenerateTokenUseCase } from '@/modules/auth/usecases/generate-token.usecase';
-import { ValidateUserUseCase } from '@/modules/auth/usecases/validate-user.usecase';
+import { JwtAuthGuard } from '@/modules/auth/guards/jwt-auth.guard';
 import { UsersModule } from '@/modules/users/users.module';
+import { BcryptService } from '@/shared/services/bcrypt/bcrypt.service';
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
+import { AuthService } from './services/auth.service';
 
 @Module({
   imports: [
@@ -17,16 +16,14 @@ import { JwtModule } from '@nestjs/jwt';
     }),
   ],
   providers: [
-    ValidateUserUseCase,
-    GenerateTokenUseCase,
-    AuthRepository,
     JwtAuthGuard,
+    AuthService,
+    BcryptService
   ],
   controllers: [
     AuthController
   ],
   exports: [
-    AuthRepository,
     JwtAuthGuard
   ],
 })

@@ -1,4 +1,4 @@
-import { JwtAuthGuard } from '@/modules/auth/jwt-auth.guard';
+import { JwtAuthGuard } from '@/modules/auth/guards/jwt-auth.guard';
 import { CreateOrderDto } from '@/modules/orders/dtos/create-order.dto';
 import { OrderResponseDto, OrdersListResponseDto } from '@/modules/orders/dtos/order-response.dto';
 import { CreateOrderUseCase } from '@/modules/orders/usecases/create-order.usecase';

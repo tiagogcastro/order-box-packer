@@ -1,12 +1,12 @@
+import { GenerateTokenRequestDto, GenerateTokenResponseDto } from '@/modules/auth/dtos/generate-token.dto';
+import { AuthService } from '@/modules/auth/services/auth.service';
 import { Body, Controller, Post } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { GenerateTokenRequestDto, GenerateTokenResponseDto } from '../dtos/generate-token.dto';
-import { GenerateTokenUseCase } from '../usecases/generate-token.usecase';
 
 @ApiTags('Autenticação')
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly generateTokenUseCase: GenerateTokenUseCase) { }
+  constructor(private readonly authService: AuthService) { }
 
   @Post('login')
   @ApiOperation({
@@ -15,18 +15,21 @@ export class AuthController {
   })
   @ApiResponse({
     status: 201,
-    description: 'Lista de pedidos realizados',
+    description: 'Token de autenticação gerado com sucesso',
     type: GenerateTokenResponseDto
   })
   @ApiResponse({
     status: 401,
     description: 'Credenciais inválidas',
     example: {
-      success: false,
-      error: 'Erro na geração do token'
+      data: null,
+      error: {
+        message: 'Erro na geração do token',
+        error: 'ERROR_TYPE'
+      }
     }
   })
   async login(@Body() data: GenerateTokenRequestDto) {
-    return this.generateTokenUseCase.execute(data);
+    return this.authService.generateToken(data.username, data.password);
   }
 }
