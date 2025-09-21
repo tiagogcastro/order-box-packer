@@ -1,4 +1,5 @@
 import { AppDataSource } from '@/config/typeorm/data-source';
+import { SeedModule } from '@/database/seed/seed.module';
 import { AuthModule } from '@/modules/auth/auth.module';
 import { BoxesModule } from '@/modules/boxes/boxes.module';
 import { OrdersModule } from '@/modules/orders/orders.module';
@@ -24,6 +25,8 @@ import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConne
     PackModule,
     BoxesModule,
     OrdersModule,
+
+    SeedModule,
   ],
 })
 export class AppModule { }
