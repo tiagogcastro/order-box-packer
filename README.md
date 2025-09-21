@@ -52,14 +52,22 @@ cp .env.example .env
 Execute o comando abaixo para construir as imagens Docker e iniciar todos os serviços (backend, banco de dados). O banco já será populado com seeds iniciais (caixas, produtos e usuário):
 
 ```bash
-docker compose up --build
+docker compose up --build -d
 ```
 
 ### 4️⃣ Acessar a aplicação
+```bash
+docker compose up
+```
 
 * **API (Swagger)**: [http://localhost:8080/api/docs](http://localhost:8080/api/docs)
 
 ---
+
+# 5️⃣ Criar migrations no Typeorm
+```bash
+npm run typeorm:migration:create src/database/migrations/{nome_da_migration}
+``` 
 
 ## Evidências do projeto
 
