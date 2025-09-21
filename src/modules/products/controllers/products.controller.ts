@@ -1,4 +1,4 @@
-import { JwtAuthGuard } from '@/modules/auth/jwt-auth.guard';
+import { JwtAuthGuard } from '@/modules/auth/guards/jwt-auth.guard';
 import { CreateProductDto } from '@/modules/products/dtos/create-product.dto';
 import { ProductResponseDto } from '@/modules/products/dtos/product-response.dto';
 import { ProductsListResponseDto } from '@/modules/products/dtos/products-list.dto';

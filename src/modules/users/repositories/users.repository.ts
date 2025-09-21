@@ -1,7 +1,6 @@
 import { User } from '@/modules/users/entities/user.entity';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import * as bcrypt from 'bcryptjs';
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -42,28 +41,5 @@ export class UsersRepository {
 
   async findAll() {
     return this.userRepository.find();
-  }
-
-  async seedUsers() {
-    try {
-      const adminUsername = process.env.SEED_ADMIN_USERNAME as string;
-      const adminPassword = process.env.SEED_ADMIN_PASSWORD as string;
-
-      const existingAdmin = await this.findByUsername(adminUsername);
-
-      if (!existingAdmin) {
-        const hashedPassword = await bcrypt.hash(adminPassword, 10);
-
-        await this.create(adminUsername, hashedPassword);
-
-        console.log(`Usuário admin criado - username: ${adminUsername}, password: ${adminPassword}`);
-      } else {
-        console.log(`Usuário admin já existe: ${adminUsername}`);
-      }
-
-      console.log('Seed de usuários concluído');
-    } catch (error) {
-      console.error('Erro no seed de usuários:', error);
-    }
   }
 }

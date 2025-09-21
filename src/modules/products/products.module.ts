@@ -3,7 +3,7 @@ import { Product } from '@/modules/products/entities/products.entity';
 import { ProductRepository } from '@/modules/products/repositories/products.repository';
 import { CreateProductUseCase } from '@/modules/products/usecases/create-product.usecase';
 import { ListProductsUseCase } from '@/modules/products/usecases/list-products.usecase';
-import { Module, OnModuleInit } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
@@ -25,10 +25,4 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     ProductRepository
   ],
 })
-export class ProductsModule implements OnModuleInit {
-  constructor(private readonly productRepository: ProductRepository) { }
-
-  async onModuleInit() {
-    await this.productRepository.seedProducts();
-  }
-}
+export class ProductsModule { }
