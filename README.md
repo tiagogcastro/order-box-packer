@@ -1,19 +1,22 @@
 # 📦 Exercício 1 - Loja do Seu Manoel - API de Empacotamento
 
-Este projeto é uma API em Node.js utilizando NestJS que automatiza o empacotamento de pedidos da Loja do Seu Manoel. A aplicação recebe pedidos com produtos e suas dimensões e retorna a melhor forma de embalar os produtos em caixas de papelão disponíveis, otimizando o uso de espaço.
+O projeto do Exercício 1 está disponível na pasta **orderBoxPacker/** deste repositório.
 
-A API já inclui testes unitários e pode ser executada facilmente com Docker.
+## Sobre o sistema
 
----
+Este projeto é uma API em Node.js utilizando NestJS que automatiza o empacotamento de pedidos da Loja do Seu Manoel.  
+A aplicação recebe pedidos com produtos e suas dimensões e retorna a melhor forma de embalar os produtos em caixas de papelão disponíveis, otimizando o uso de espaço.
 
-## 🧠 Objetivo
+### Principais funcionalidades:
+- Empacotamento automático de pedidos em caixas de papelão.
+- Definição de quais produtos vão em cada caixa, minimizando o número de caixas.
+- API REST documentada com Swagger.
+- Seeds iniciais de caixas, produtos e usuário admin.
+- Testes unitários implementados com Jest.
 
-Permitir que pedidos sejam empacotados automaticamente em caixas de papelão, especificando quais produtos vão em cada caixa e minimizando o número de caixas utilizadas.  
-
-- **Backend**: API REST em Node.js com NestJS  
-- **Banco de Dados**: PostgreSQL via TypeORM  
-- **Testes Unitários**: Jest  
-- **Documentação da API**: Swagger  
+### Estrutura e seed de demonstração
+Ao iniciar o sistema via Docker, a estrutura do banco de dados é criada automaticamente com o PostgreSQL.  
+Um conjunto de **seeds iniciais** é inserido (caixas, produtos e usuário admin) para facilitar os testes e a demonstração.
 
 ---
 
@@ -28,83 +31,18 @@ Permitir que pedidos sejam empacotados automaticamente em caixas de papelão, es
 
 ---
 
-## 🚀 Como Iniciar o Projeto (Docker)
+## 🚀 Como executar
 
-### Pré-requisitos
+### 1️⃣ Pré-requisitos
 * Docker Desktop instalado e em execução.
 
-### 1️⃣ Clonar o repositório
-```bash
-git clone <url-do-repositorio>
-cd loja-seu-manoel
-````
-
-### 2️⃣ Configurar o arquivo de ambiente
-
-Na raiz do projeto, copie o arquivo `.env.example` para `.env` e configure suas variáveis (PostgreSQL, usuário admin, etc):
-
-```bash
-cp .env.example .env
-```
-
-### 3️⃣ Subir o ambiente completo
-
-Execute o comando abaixo para construir as imagens Docker e iniciar todos os serviços (backend, banco de dados). O banco já será populado com seeds iniciais (caixas, produtos e usuário):
-
-```bash
-docker compose up --build -d
-```
-
-### 4️⃣ Acessar a aplicação
-```bash
-docker compose up
-```
-
-* **API (Swagger)**: [http://localhost:8080/api/docs](http://localhost:8080/api/docs)
-
----
-
-# 5️⃣ Criar migrations no Typeorm
-```bash
-npm run typeorm:migration:create src/database/migrations/{nome_da_migration}
-``` 
-
-## Evidências do projeto
-
-Api Executando
-
-![Api exeecutando](.github/api_running.png)
-
-Documentação no Swagger
-
-![Documentação no Swagger](.github/swagger.png)
-
-Pedido processado e retornando dentro da caixa
-
-![Pedido processado e retornando dentro da caixa](.github/swagger_order_executed.png)
-
-## 🔐 Requisitos opcionais implementados
-
-* Autenticação básica de usuários via JWT
-* Módulo de Usuários
-* PostgreSQL como banco de dados relacional
-* TypeORM para gerenciamento das entidades e relacionamentos
-* Seeds iniciais para caixas, produtos e usuário admin
-* Testes unitários com Jest
-
-> 💡 Observação: **apenas rodar o Docker já inicializa tudo automaticamente**, incluindo banco, seeds e aplicação pronta para uso.
-
----
-
-## 🚀 Evoluções planejadas / já implementadas
-
-* Implementação de múltiplos tamanhos de caixas e lógica de otimização de empacotamento
-* Endpoint para criar, listar e gerenciar pedidos e produtos
-* Suporte a autenticação e controle de usuários
-* Documentação completa via Swagger para facilitar testes e integração
-* Testes unitários cobrindo usecases, reposittories, serviços e lógica de empacotamento
-
----
+### 2️⃣ Acessar a pasta do projeto
+1. Acesse a pasta `orderBoxPacker/`.
+2. Execute:
+	```bash
+	docker compose up --build -d
+	docker compose up
+	```
 
 # Exercício 2 - HORÁRIOS DE AULA
 
